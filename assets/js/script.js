@@ -181,3 +181,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const roleButtons = document.querySelectorAll(".role-btn");
+  const roleSkills = document.querySelectorAll(".role-skill");
+
+  // Default show AIML
+  roleSkills.forEach(sec => sec.style.display = "none");
+  document.querySelector("#aiml-skills").style.display = "flex";
+
+  roleButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const targetRole = btn.dataset.role;
+
+      // hide all
+      roleSkills.forEach(sec => sec.style.display = "none");
+
+      // show selected
+      const activeSkills = document.querySelector(`#${targetRole}-skills`);
+      if (activeSkills) activeSkills.style.display = "flex";
+    });
+  });
+});

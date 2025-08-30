@@ -570,8 +570,8 @@ main {
   align-items: flex-start;
   gap: 15px;
   margin: 0 -15px;
-  padding: 25px 15px;
-  padding-bottom: 35px;
+  padding: 50px 30px;
+  padding-bottom: 70px;
   overflow-x: auto;
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
@@ -580,12 +580,15 @@ main {
 
 .testimonials-item {
   min-width: 100%;
+  min-height: 100%;
   scroll-snap-align: center;
 }
 
 .testimonials-avatar-box {
   position: absolute;
-  top: 0;
+  width: 250px;
+  height: 250px;
+  top: -50px;
   left: 0;
   transform: translate(15px, -25px);
   background: var(--bg-gradient-onyx);
@@ -1413,13 +1416,13 @@ textarea.form-input::-webkit-resizer { display: none; }
   .testimonials-list {
     gap: 30px;
     margin: 0 -30px;
-    padding: 30px;
+    padding: 100px;
     padding-bottom: 35px;
   }
 
   .content-card {
     padding: 30px;
-    padding-top: 25px;
+    padding-top: 250px;
   }
 
   .testimonials-avatar-box {
@@ -1471,17 +1474,53 @@ textarea.form-input::-webkit-resizer { display: none; }
     width: 35px;
   }
 
-  /* clients */
+ /* Skills */
+.skills-list {
+  display: flex;
+  gap: 50px;
+  margin: 0 -30px;
+  padding: 45px;
+  scroll-padding-inline: 45px;
+  overflow: hidden; /* smooth infinite scroll */
+  animation: scroll 25s linear infinite;
+}
 
-  .clients-list {
-    gap: 50px;
-    margin: 0 -30px;
-    padding: 45px;
-    scroll-padding-inline: 45px;
+.skill-item {
+  min-width: 120px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.skill-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.skill-item p {
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Infinite Scroll Animation */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
   }
+  to {
+    transform: translateX(-50%); /* half move for smooth loop */
+  }
+}
 
-  .clients-item { min-width: calc(33.33% - 35px); }
+/* Hide inactive skill lists */
+.role-skill {
+  display: none;
+}
 
+.role-skill.active {
+  display: flex;
+}
 
 
   /**
