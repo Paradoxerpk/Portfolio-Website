@@ -1972,3 +1972,60 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 
+/* Resume Section */
+
+
+.resume h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Resume Cards Layout */
+.resume-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.resume-item {
+  background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+  padding: 30px 20px;
+  border-radius: 15px;
+  width: 260px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.resume-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 6px 20px rgba(26, 22, 22, 0.6);
+}
+
+.resume-item p {
+  color: #ddd;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+/* Button Style */
+.resume-item .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #007bff, #00d4ff);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.resume-item .btn:hover {
+  background: linear-gradient(135deg, #0056b3, #0099cc);
+  transform: scale(1.05);
+}
