@@ -1178,43 +1178,66 @@
         - #CONTACT
       -->
 
-      <article class="contact" data-page="contact">
+  <!-- CONTACT -->
+<article class="contact" data-page="contact">
 
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
+  <header>
+    <h2 class="h2 article-title">Contact</h2>
+  </header>
 
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21461.038030418786!2d78.85003749016323!3d9.807136574921453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b004d125551e74d%3A0x5f064e403f129fdc!2zS2Fya2FsYXRodXIgL-CuleCuseCvjeCuleCus-CupOCvjeCupOCvguCuvuCvjSBCdXMgU3RvcA!5e0!3m2!1sen!2sin!4v1756656541468!5m2!1sen!2sin"               width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
+  <section class="mapbox" data-mapbox>
+    <figure>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21461.038030418786!2d78.85003749016323!3d9.807136574921453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b004d125551e74d%3A0x5f064e403f129fdc!2zS2Fya2FsYXRodXIgL-CuleCuseCvjeCuleCus-CupOCvjeCupOCvguCuvuCvjSBCdXMgU3RvcA!5e0!3m2!1sen!2sin!4v1756656541468!5m2!1sen!2sin"
+        width="400" height="300" loading="lazy"></iframe>
+    </figure>
+  </section>
 
-        <section class="contact-form">
+  <section class="contact-form">
+    <h3 class="h3 form-title">Contact Form</h3>
 
-          <h3 class="h3 form-title">Contact Form</h3>
+    <form id="contact-form" class="form" data-form>
+      <div class="input-wrapper">
+        <input type="text" name="name" class="form-input" placeholder="Full name" required>
+        <input type="email" name="email" class="form-input" placeholder="Email address" required>
+      </div>
 
-          <form action="#" class="form" data-form>
+      <input type="text" name="subject" class="form-input" placeholder="Subject" required>
+      <br>
 
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+      <textarea name="message" class="form-input" placeholder="Your Message" required></textarea>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
+      <button class="form-btn" type="submit">
+        <ion-icon name="paper-plane"></ion-icon>
+        <span>Send Message</span>
+      </button>
+    </form>
+  </section>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+</article>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+<!-- ✅ EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS with your Public Key
+  (function(){
+    emailjs.init("YXQ9rMEVsx7aafEy1"); // Replace with your EmailJS Public Key
+  })();
 
-          </form>
+  // Form Submit
+  document.getElementById("contact-form").addEventListener("submit", function(event){
+    event.preventDefault();
 
-        </section>
+    emailjs.sendForm("service_jhwkvds", "template_c7lkwna", this)
+      .then(function() {
+        alert("Message Sent Successfully ✅");
+        document.getElementById("contact-form").reset();
+      }, function(error) {
+        alert("Failed to send message ❌: " + JSON.stringify(error));
+      });
+  });
+</script>
 
-      </article>
 
     </div>
 
